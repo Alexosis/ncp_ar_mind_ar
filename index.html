@@ -37,6 +37,29 @@
         camera = new THREE.Camera();
         scene.add(camera);
 
+        let arToolkitSource = new THREEx.ArToolkitSource({
+            sourceType : 'webcam',
+        });
+
+        function onResize()
+        {
+            arToolkitSource.onResize()
+            arToolkitSource.copySizeTo(renderer.domElement)
+            if ( arToolkitContext.arController !== null )
+            {
+                arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
+            }
+        }
+
+        arToolkitSource.init(function onReady(){
+            onResize()
+        });
+
+        // handle resize event
+        window.addEventListener('resize', function(){
+            onResize()
+        });
+
         // create atToolkitContext
         let arToolkitContext = new THREEx.ArToolkitContext({
             cameraParametersUrl: 'data/camera_para.dat',
