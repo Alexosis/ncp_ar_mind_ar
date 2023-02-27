@@ -32,9 +32,10 @@
         ////////////////////////////////////////////////////////////
         // setup arToolkitContext
         ////////////////////////////////////////////////////////////
+        scene = new THREE.Scene();
 
         camera = new THREE.Camera();
-        //scene.add(camera);
+        scene.add(camera);
 
         // create atToolkitContext
         let arToolkitContext = new THREEx.ArToolkitContext({
