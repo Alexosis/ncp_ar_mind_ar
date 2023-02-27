@@ -82,14 +82,8 @@
                 renderer.render(scene, camera);
             });
         }
-        const startButton = document.querySelector("#startButton");
-        startButton.addEventListener("click", () => {
-            start();
-        });
-        stopButton.addEventListener("click", () => {
-            mindarThree.stop();
-            mindarThree.renderer.setAnimationLoop(null);
-        });
+        start();
+
     </script>
     <style>
         body {
